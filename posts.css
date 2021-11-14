@@ -1,0 +1,360 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+:root{
+    --cont-color:#F7F7F7;
+    /* --card-color:#DFE3EE; */
+    --card-color:#e2f8ff;
+    /* --select-color:#3B5998; */
+    --select-color:#0799d3;
+    /* --cnt-color: #3B5998; */
+    --cnt-color: #4288a3;
+    --des-color:coral;
+}
+    
+
+body{
+        /* background-color: var(--cont-color); */
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        align-items: center;
+}
+.head{
+    background-color:var(--des-color);
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+padding: 10px;
+z-index: 9999;
+}
+.head>h1{
+    text-align: center;
+    padding-top: 20px;
+}
+.head>h2{
+    font-size: 30px;
+    text-align: center;
+    font-family: cursive;
+}
+#posts label[class]{
+    margin: 25px;
+}
+
+#posts{
+    position: absolute;
+    top:120px;
+    left: 0;
+    display:flex;
+    background-color: var(--cont-color);
+    width:100%;
+    min-height: calc(100% - 125px);
+    flex-grow: 2;
+    align-content:center ;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.design{
+    width: 50%;
+    height: 90vh;
+    position: fixed;
+    z-index: 8888;
+    left: 50%;
+    top:115px;
+    background-color: var(--des-color);
+}
+#posts *{
+    z-index: 9998;
+}
+
+.deleteAll{
+    display: none;
+    padding: 5px;
+    cursor: pointer;
+    
+    border-radius: 10px;
+    box-shadow: 0 2px 6px black;
+    border:2px solid var(--card-color);
+    background-color: var(--card-color);/*rgb(202, 230, 175);*/
+    text-align: center;
+}
+.deleteAll:hover{
+    border:2px solid var(--select-color);
+    background-color: var(--select-color);
+    color: #DFE3EE;
+    transform: scale(1.075);
+}
+
+.multiDelete{
+    display: flex;
+    letter-spacing: 1.5px;
+    width: 590px;
+    padding:25px 15px;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    /* align-content: space-around; */
+    align-items:center;
+}
+.multiDelete > label{
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    /* width: 50%; */
+}
+.card{
+ background-color: var(--card-color);
+border-radius:10px;
+border-bottom-left-radius:0 ;
+border-bottom-right-radius:0 ;
+width: 100%;
+border-bottom: 1.5px solid var(--select-color);
+}
+.mainCard{
+    box-sizing: content-box;
+    display: flex;
+    width:550px;
+    height:fit-content;
+    border-radius: 15px;
+   background-color: var(--cont-color);
+    border: var(--des-color) solid 3px;
+    flex-direction: column;
+align-items: center;
+gap:3px;
+/* border: var(--select-color) solid 3px; */
+}
+.mainCard:hover{
+    border: var(--select-color) solid 3px;
+    transform:scale(1.0125);
+    box-shadow: 0 6px 10px 0 rgba(3, 10, 6, 0.2), 0 8px 20px 0 rgba(29, 5, 250, 0.19);
+}
+[type="checkbox"]:checked + .mainCard{
+    border: var(--select-color) solid 3px;
+    transform:scale(1.0125);
+    box-shadow: 0 6px 10px 0 rgba(3, 10, 6, 0.2), 0 8px 20px 0 rgba(29, 5, 250, 0.19);
+}
+.options{
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 20px;
+    
+}
+.tick{
+    display: flex;
+    height:40px;
+    width: 100%;
+    /* padding-right:5px; */
+    /* background-color: gray; */
+    align-items: center;
+    justify-content: space-around;
+    /* gap:70%; */
+    gap:70%;
+}
+.opt.edopt{
+    font-size:14px ;
+    display: none;
+}
+.title-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 20PX;
+}
+textarea{
+    background-color: transparent;
+    padding:5px ;
+    text-align: center;
+    resize: none;
+}
+textarea:focus{
+    outline:2px solid var(--select-color);
+}
+.titleEdit{
+    font-size: 18PX;
+  width: 90%;
+    height: 50px;
+}
+
+.bodyEdit{
+    font-size: 15PX;
+height:90px;
+width: 90%;
+}
+.opt{
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--cnt-color);
+}
+[tool-tip]{
+    position: relative;
+}
+
+
+[tool-tip]:hover::after{
+    content: attr(tool-tip-text);
+    background-color: black;
+    color: white;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 8px;
+    letter-spacing: 2px;
+    bottom: calc(100% + 4px);
+    right: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateX(50%);
+    /* z-index: 100000; */
+}
+.card:hover::after , .multiDelete>label>i:hover::after{
+    font-size: 12px;
+}
+
+
+.circle{
+    background-color: transparent;
+    width: 18px;
+    height:18px;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.check{
+    color:  var(--select-color);
+background-color:var(--card-color);
+font-size:19px;
+border-radius: 50%;
+ visibility: hidden;
+}
+[type="checkbox"]:checked + .mainCard .circle{
+ height: 18px;
+ width:19px;
+ text-align: center;
+ border: 0;
+ box-shadow: 0px 2px 8px var(--select-color);
+}
+
+[type="checkbox"]:checked + .mainCard :is(.check){
+visibility: visible;
+}
+[type="checkbox"]:checked + .circle{
+    height: 18px;
+    width:19px;
+    text-align: center;
+    border: 0;
+    box-shadow: 0px 2px 8px var(--select-color);
+   }
+   #multiSelectMode{
+display: none;
+   }
+#multiSelectMode:checked + .circle > .check{
+    visibility: visible;
+}
+
+
+
+.title{
+    font-size:22px;
+    text-align: center;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: capitalize;
+    
+}
+.body{
+    font-size: 15px;
+    padding:25px;
+    font-family: sans-serif;
+    
+}
+.commentSection{
+    width: 100%;
+    
+}
+img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.commentdrop{
+    display:flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    padding:10px;
+    
+    justify-content: space-between;
+   
+    
+}
+.CommentArrow{
+    cursor: pointer;
+    padding-right:10px ;
+    color:var(--select-color) ;
+}
+
+.CommentArrow:hover{
+color: var(--des-color);
+}
+.comments{
+    display:none;
+    border-top: 1px solid black;
+    padding:30px;
+    font-size: 12px;
+    flex-direction: column;
+    gap: 20px;
+}
+.comments .cm > div{
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+.comments .cm >div>span{
+font-size: 13px;
+color: black;
+text-decoration: underline;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.comments .cm >h3{
+    padding-left: 20px;
+    color: var(--select-color);
+}
+.comments.cm >h4{
+    padding:10px;
+    padding-top:5px ;
+    color: rgb(37, 146, 235);
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width:600px) {
+    body{
+        width: 100vw;
+        min-height: 100%;
+    }
+    #posts label[class]{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mainCard{
+        width: 100%;
+    }
+    [tool-tip]::after{
+        display: none;
+
+    }
+    .multiDelete{
+        padding: 0;
+        width: 100%;
+    }
+    .multiDelete > label{
+        width: auto;
+    }
+}
+

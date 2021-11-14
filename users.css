@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+--back-color:rgb(122, 198, 243);
+--table-backcolor: rgb(205, 223, 144);
+--table-bordercolor:rgb(16, 108, 131); 
+}
+body{
+    background-color: var(--back-color);
+    
+}
+h2{
+    text-align: center;
+}
+table{
+    background-color: var(--table-backcolor);
+text-align: center;
+border-collapse: collapse;
+position: absolute;
+left:50%;
+transform: translateX(-50%);
+}
+
+td,th{
+    border:3px solid var(--table-bordercolor);
+    border-collapse: collapse;
+width:max-content;
+min-width: 150px;
+padding: 10px;
+}
+tr:hover{
+   background-color: var(--back-color);
+   cursor: pointer;
+}
